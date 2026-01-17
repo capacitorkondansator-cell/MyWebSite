@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazlı Gül Ertaş - Psikolog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #667eea;
+        }
+
+        .services {
+            background: #f8f9fa;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102,126,234,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .qualifications {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .qualifications li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .qualifications li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Nazlı Gül Ertaş Uyumaz</div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#hakkimda">Hakkımda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="anasayfa" class="hero">
+        <div class="hero-content">
+            <h1>Hayatınızı Dönüştürmeye Hazır mısınız?</h1>
+            <p>Profesyonel psikolojik danışmanlık hizmetleri ile yanınızdayım</p>
+            <a href="#iletisim" class="btn">Randevu Al</a>
+        </div>
+    </section>
+
+    <section id="hizmetler" class="services">
+        <h2>Hizmetlerimiz</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Bireysel Terapi</h3>
+                <p>Kişisel gelişim, anksiyete, depresyon ve stres yönetimi konularında profesyonel destek.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💑</div>
+                <h3>Çift Terapisi</h3>
+                <p>İlişkilerde iletişim sorunları, çatışma çözümü ve duygusal bağ güçlendirme.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👨‍👩‍👧‍👦</div>
+                <h3>Aile Danışmanlığı</h3>
+                <p>Aile içi iletişim problemleri, ebeveyn-çocuk ilişkileri ve aile dinamikleri.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Kariyer Koçluğu</h3>
+                <p>Kariyer planlama, motivasyon artırma ve iş yaşamında denge kurma.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧘</div>
+                <h3>Stres Yönetimi</h3>
+                <p>Mindfulness, rahatlama teknikleri ve sağlıklı başa çıkma mekanizmaları.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Online Terapi</h3>
+                <p>Güvenli ve rahat ortamda, nerede olursanız olun terapi imkanı.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimda">
+        <h2>Hakkımda</h2>
+        <div class="about">
+            <div class="about-image">👤</div>
+            <div class="about-text">
+                <h3>Nazlı Gül Ertaş Uyumaz</h3>
+                <p>Merhaba, ben Nazlı Gül Ertaş Uyumaz. 15 yıllık deneyimimle, bireylerin ve ailelerin yaşamlarında pozitif değişimler yaratmalarına yardımcı oluyorum.</p>
+                <p>Psikolojik sağlık herkesin hakkıdır. Her bireyin kendi içsel gücünü keşfetmesine ve hayatında anlamlı değişiklikler yapmasına rehberlik etmek benim tutkum.</p>
+                <ul class="qualifications">
+                    <li>İstanbul Üniversitesi Psikoloji Bölümü, Lisans</li>
+                    <li>Boğaziçi Üniversitesi Klinik Psikoloji, Yüksek Lisans</li>
+                    <li>Bilişsel Davranışçı Terapi (BDT) Sertifikası</li>
+                    <li>EMDR Terapisti Eğitimi</li>
+                    <li>Türk Psikologlar Derneği Üyesi</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="contact">
+        <h2>İletişim</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Bizimle İletişime Geçin</h3>
+                <p>Randevu almak veya sorularınız için bize ulaşabilirsiniz.</p>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+90 555 123 45 67</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>info@ayseyilmaz.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Nispetiye Cad. No:12 Ümraniye, İstanbul</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <span>Pzt-Cum: 09:00 - 18:00</span>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Adınız Soyadınız</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nazlı Gül Ertaş Uyumaz - Klinik Psikolog. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mesajınız alındı! En kısa sürede size dönüş yapacağız.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
