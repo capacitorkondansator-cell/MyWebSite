@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nazlı Gül Ertaş - Klinik Psikolog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Nazlı Gül Ertaş Uyumaz - Klinik Psikolog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,231 +13,107 @@
         }
 
         :root {
-            --primary: #2C1654;
-            --secondary: #8B5CF6;
-            --accent: #EC4899;
-            --light: #F8F7FF;
-            --dark: #1A0B2E;
-            --text: #374151;
+            --primary: #2C5F5D;
+            --secondary: #4A90A4;
+            --accent: #C17767;
+            --dark: #1B3B3A;
+            --light: #F5F0E8;
+            --beige: #E8DCC4;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
             background: var(--light);
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3 {
+            font-family: 'Crimson Pro', serif;
         }
 
         header {
+            background: white;
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 3rem;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
             font-size: 1.4rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary);
+            font-family: 'Crimson Pro', serif;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
             color: var(--dark);
             text-decoration: none;
+            transition: color 0.3s;
             font-weight: 500;
             font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+        .nav-links a:hover {
+            color: var(--accent);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .page {
+            display: none;
+            padding-top: 80px;
+        }
+
+        .page.active {
+            display: block;
         }
 
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a0b2e 0%, #2c1654 50%, #8b5cf6 100%);
-            padding: 0 3rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle at 30% 50%, rgba(236, 72, 153, 0.2) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(5deg); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 4.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-text p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
-            line-height: 1.8;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease 0.6s backwards;
-        }
-
-        .stat {
+            padding: 120px 2rem 80px;
             text-align: center;
         }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: white;
-            display: block;
-            font-family: 'Playfair Display', serif;
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .stat-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
         }
 
-        .hero-image {
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .profile-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: white;
-            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
-        }
-
-        .cta-group {
-            display: flex;
-            gap: 1.5rem;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        .btn {
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -247,284 +121,435 @@
             }
         }
 
-        section {
-            padding: 8rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-subtitle {
-            color: var(--accent);
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn:hover {
+            background: #a86555;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(193, 119, 103, 0.3);
+        }
+
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .section-title {
-            font-size: 3.5rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .service-card {
             background: white;
-            padding: 3rem 2.5rem;
-            border-radius: 25px;
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border-left: 4px solid var(--accent);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.15);
-            border-color: var(--secondary);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(74, 144, 164, 0.15);
         }
 
         .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
-            font-size: 1.6rem;
-            color: var(--dark);
+            color: var(--primary);
             margin-bottom: 1rem;
+            font-size: 1.6rem;
         }
 
-        .service-card p {
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        .about {
-            background: var(--dark);
-            color: white;
-            border-radius: 50px;
-            padding: 6rem 4rem;
+        .about-section {
+            background: var(--beige);
+            padding: 80px 2rem;
+            margin: 60px 0;
+            border-radius: 30px;
         }
 
         .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 5rem;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
             align-items: center;
-        }
-
-        .about-image-wrapper {
-            position: relative;
         }
 
         .about-image {
             width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-            border-radius: 30px;
+            height: 450px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 8rem;
-            box-shadow: 0 30px 60px rgba(236, 72, 153, 0.3);
+            color: white;
+            box-shadow: 0 20px 50px rgba(44, 95, 93, 0.2);
         }
 
         .about-text h2 {
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            color: white;
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .about-text h3 {
-            font-size: 1.8rem;
             color: var(--accent);
+            font-size: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
         .about-text p {
-            font-size: 1.15rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
 
         .qualifications {
             list-style: none;
-            margin-top: 2.5rem;
-            display: grid;
-            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .qualifications li {
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            border-left: 4px solid var(--accent);
-            font-size: 1.05rem;
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
         }
 
-        .contact {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-            border-radius: 50px;
-            padding: 6rem 4rem;
+        .qualifications li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: #666;
+            line-height: 1.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-section {
+            background: var(--primary);
             color: white;
+            padding: 80px 2rem;
+            margin: 60px 0;
+            border-radius: 30px;
         }
 
         .contact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 5rem;
-            margin-top: 4rem;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 4rem;
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+        .contact-info h2 {
+            color: white;
+            margin-bottom: 2rem;
         }
 
-        .contact-info > p {
+        .contact-info p {
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
             font-size: 1.1rem;
-            margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.9);
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
             margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateX(10px);
+            padding: 1.2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
         }
 
         .contact-icon {
             font-size: 1.8rem;
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.15);
             padding: 3rem;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             font-weight: 500;
-            font-size: 1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1.2rem 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            padding: 1rem 1.3rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.95);
             font-family: inherit;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.95rem;
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 130px;
         }
 
         .submit-btn {
-            width: 100%;
             background: var(--accent);
             color: white;
             border: none;
-            padding: 1.3rem;
-            border-radius: 15px;
+            padding: 1.1rem 3rem;
+            border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+            font-size: 1rem;
         }
 
         .submit-btn:hover {
-            background: #db2777;
+            background: #a86555;
+            transform: scale(1.05);
+        }
+
+        .blog-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+        }
+
+        .blog-content {
+            display: none;
+        }
+
+        .blog-content.active {
+            display: block;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(74, 144, 164, 0.15);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--secondary), var(--beige));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-body {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .blog-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            gap: 0.8rem;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(74, 144, 164, 0.2);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
         }
 
         footer {
             background: var(--dark);
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.8);
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2.5rem;
             font-size: 0.95rem;
         }
 
@@ -538,43 +563,17 @@
         .menu-toggle span {
             width: 25px;
             height: 3px;
-            background: var(--dark);
+            background: var(--primary);
             border-radius: 3px;
-            transition: all 0.3s;
-        }
-
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 3.5rem;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .about-content, .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
         }
 
         @media (max-width: 768px) {
             nav {
-                padding: 1rem 1.5rem;
+                padding: 0 1.5rem;
             }
 
-            .logo {
-                font-size: 1.1rem;
+            .menu-toggle {
+                display: flex;
             }
 
             .nav-links {
@@ -586,85 +585,47 @@
                 flex-direction: column;
                 padding: 2rem;
                 gap: 1.5rem;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transition: left 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: left 0.3s;
             }
 
             .nav-links.active {
                 left: 0;
             }
 
-            .menu-toggle {
-                display: flex;
-            }
-
-            .hero {
-                padding: 0 1.5rem;
-            }
-
-            .hero-text h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-text p {
+            .hero p {
                 font-size: 1.1rem;
             }
 
-            .hero-stats {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .cta-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                text-align: center;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-
-            .services-grid {
+            .about-content, .contact-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .about, .contact {
-                padding: 3rem 2rem;
-                border-radius: 30px;
-            }
-
-            .about-text h2, .contact h2 {
-                font-size: 2.5rem;
+                gap: 2.5rem;
             }
 
             .about-image {
                 height: 350px;
                 font-size: 5rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 2rem;
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 50px 1.5rem;
             }
 
             .section-title {
-                font-size: 2rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -679,184 +640,433 @@
                 <span></span>
             </div>
             <ul class="nav-links">
-                <li><a href="#anasayfa" onclick="closeMenu()">Musa'cığım</a></li>
-                <li><a href="#hizmetler" onclick="closeMenu()">Hizmetler</a></li>
-                <li><a href="#hakkimda" onclick="closeMenu()">Hakkımda</a></li>
-                <li><a href="#iletisim" onclick="closeMenu()">İletişim</a></li>
+                <li><a href="#" onclick="showPage('home')">Ana Sayfa</a></li>
+                <li><a href="#" onclick="showPage('about')">Hakkımda</a></li>
+                <li><a href="#" onclick="showPage('services')">Hizmetler</a></li>
+                <li><a href="#" onclick="showPage('blog')">Blog & Medya</a></li>
+                <li><a href="#" onclick="showPage('contact')">İletişim</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="anasayfa" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hayatınızda Yeni Bir Başlangıç</h1>
-                <p>Psikolojik sağlığınız için profesyonel destek. Güvenli bir ortamda, kendinizi keşfedin ve içsel gücünüzü ortaya çıkarın.</p>
-                <div class="cta-group">
-                    <a href="#iletisim" class="btn btn-primary">Randevu Al</a>
-                    <a href="#hakkimda" class="btn btn-secondary">Hakkımda</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Yıllık Deneyim</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Mutlu Danışan</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Memnuniyet</span>
-                    </div>
-                </div>
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hayatınızı Dönüştürmeye Hazır mısınız?</h1>
+                <p>Profesyonel psikolojik danışmanlık hizmetleri ile yanınızdayım. Güvenli bir ortamda kendinizi keşfedin, içsel gücünüzü ortaya çıkarın.</p>
+                <a href="#" onclick="showPage('contact')" class="btn">Randevu Al</a>
             </div>
-            <div class="hero-image">
-                <div class="profile-card">
-                    <div class="profile-img">👤</div>
-                    <h3 style="color: white; text-align: center; font-size: 1.8rem; margin-bottom: 0.5rem;">Nazlı Gül Ertaş Uyumaz</h3>
-                    <p style="text-align: center; color: rgba(255,255,255,0.8);">Klinik Psikolog</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="hizmetler">
-        <div class="section-header">
-            <div class="section-subtitle">Hizmetlerimiz</div>
-            <h2 class="section-title">Size Nasıl Yardımcı Olabilirim?</h2>
-            <p class="section-description">Her bireyin ihtiyaçları farklıdır. Size özel yaklaşımlarla, yaşam kalitenizi artırmak için buradayım.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <span class="service-icon">🧠</span>
-                <h3>Bireysel Terapi</h3>
-                <p>Anksiyete, depresyon ve stres yönetimi konularında profesyonel destek ile kendinizi yeniden keşfedin.</p>
+        <section>
+            <div class="intro-section">
+                <h2 class="section-title">Size Nasıl Yardımcı Olabilirim?</h2>
+                <p>Her bireyin ihtiyaçları farklıdır. 15 yıllık deneyimimle, size özel yaklaşımlar geliştirerek yaşam kalitenizi artırmanıza yardımcı oluyorum. Birlikte, içsel gücünüzü keşfedecek ve pozitif değişimler yaratacaksınız.</p>
             </div>
-            <div class="service-card">
-                <span class="service-icon">💑</span>
-                <h3>Çift Terapisi</h3>
-                <p>İlişkinizdeki iletişim sorunlarını çözün, duygusal bağınızı güçlendirin.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">👨‍👩‍👧‍👦</span>
-                <h3>Aile Danışmanlığı</h3>
-                <p>Aile içi dinamikleri iyileştirin, sağlıklı iletişim kurmanın yollarını öğrenin.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🎯</span>
-                <h3>Kariyer Koçluğu</h3>
-                <p>Kariyer hedeflerinize ulaşın, iş yaşamınızda denge ve motivasyon bulun.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">🧘</span>
-                <h3>Stres Yönetimi</h3>
-                <p>Mindfulness teknikleriyle stresi yönetin, iç huzura kavuşun.</p>
-            </div>
-            <div class="service-card">
-                <span class="service-icon">💻</span>
-                <h3>Online Terapi</h3>
-                <p>Nerede olursanız olun, güvenli ortamda terapi imkanı.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="hakkimda" class="about">
-        <div class="about-content">
-            <div class="about-image-wrapper">
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Yıllık Deneyim</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1000+</span>
+                    <span class="stat-label">Mutlu Danışan</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Memnuniyet Oranı</span>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 60px;">Hizmetlerimiz</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Bireysel Terapi</h3>
+                    <p>Kişisel gelişim, anksiyete, depresyon ve stres yönetimi konularında profesyonel destek.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💑</div>
+                    <h3>Çift Terapisi</h3>
+                    <p>İlişkilerde iletişim sorunları, çatışma çözümü ve duygusal bağ güçlendirme.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Aile Danışmanlığı</h3>
+                    <p>Aile içi iletişim problemleri ve aile dinamiklerini iyileştirme.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="about" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hakkımda</h1>
+                <p>Psikolojik sağlık alanında 15 yıllık deneyime sahip bir uzman olarak, sizlere hizmet vermekten mutluluk duyuyorum.</p>
+            </div>
+        </section>
+
+        <div class="about-section">
+            <div class="about-content">
                 <div class="about-image">👤</div>
-            </div>
-            <div class="about-text">
-                <h2>Merhaba, Ben Nazlı</h2>
-                <h3>Klinik Psikolog</h3>
-                <p>15 yıllık deneyimimle, bireylerin ve ailelerin yaşamlarında pozitif değişimler yaratmalarına yardımcı oluyorum. Her bireyin kendi içsel gücünü keşfetmesine rehberlik etmek benim tutkum.</p>
-                <p>Psikolojik sağlık herkesin hakkıdır. Güvenli ve empatik bir ortamda, size özel terapi yaklaşımlarıyla yanınızdayım.</p>
-                <ul class="qualifications">
-                    <li>İstanbul Üniversitesi Psikoloji Bölümü, Lisans</li>
-                    <li>Boğaziçi Üniversitesi Klinik Psikoloji, Yüksek Lisans</li>
-                    <li>Bilişsel Davranışçı Terapi (BDT) Sertifikası</li>
-                    <li>EMDR Terapisti Eğitimi</li>
-                    <li>Türk Psikologlar Derneği Üyesi</li>
-                </ul>
+                <div class="about-text">
+                    <h2>Nazlı Gül Ertaş Uyumaz</h2>
+                    <h3>Klinik Psikolog</h3>
+                    <p>Merhaba, ben Nazlı Gül Ertaş Uyumaz. 15 yıllık deneyimimle, bireylerin ve ailelerin yaşamlarında pozitif değişimler yaratmalarına yardımcı oluyorum.</p>
+                    <p>Psikolojik sağlık herkesin hakkıdır. Her bireyin kendi içsel gücünü keşfetmesine ve hayatında anlamlı değişiklikler yapmasına rehberlik etmek benim tutkum. Güvenli, empatik ve destekleyici bir ortamda, size özel terapi yaklaşımlarıyla yanınızdayım.</p>
+                    <p>Danışanlarımla çalışırken, kanıta dayalı terapi yöntemlerini bireysel ihtiyaçlara göre uyarlıyor, her kişinin benzersiz yolculuğuna saygı gösteriyorum.</p>
+                    <ul class="qualifications">
+                        <li>İstanbul Üniversitesi Psikoloji Bölümü, Lisans</li>
+                        <li>Boğaziçi Üniversitesi Klinik Psikoloji, Yüksek Lisans</li>
+                        <li>Bilişsel Davranışçı Terapi (BDT) Sertifikası</li>
+                        <li>EMDR Terapisti Eğitimi</li>
+                        <li>Türk Psikologlar Derneği Üyesi</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </section>
 
-    <section id="iletisim" class="contact">
-        <div class="section-header">
-            <div class="section-subtitle" style="color: rgba(255,255,255,0.8);">İletişim</div>
-            <h2 class="section-title" style="color: white;">Hemen İletişime Geçin</h2>
-            <p class="section-description" style="color: rgba(255,255,255,0.9);">Randevu almak veya sorularınız için benimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağım.</p>
-        </div>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <div class="contact-item">
-                    <div class="contact-icon">📞</div>
-                    <div>
-                        <strong style="display: block; margin-bottom: 0.3rem;">Telefon</strong>
-                        <span>+90 555 123 45 67</span>
-                    </div>
+        <section>
+            <h2 class="section-title">Çalışma Yaklaşımım</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💙</div>
+                    <h3>Empatik Yaklaşım</h3>
+                    <p>Her danışanımı benzersiz bir birey olarak görür, yargılamadan dinlerim.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <div>
-                        <strong style="display: block; margin-bottom: 0.3rem;">E-posta</strong>
-                        <a href:"mailto:gulertas78@gmail.com">E Posta</a>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <h3>Kanıta Dayalı</h3>
+                    <p>Bilimsel araştırmalara dayanan, kanıtlanmış terapi yöntemlerini kullanırım.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div>
-                        <strong style="display: block; margin-bottom: 0.3rem;">Adres</strong>
-                        <span>Nispetiye Cad. No:12 Levent, İstanbul</span>
-                    </div>
+                <div class="service-card">
+                    <div class="service-icon">🌱</div>
+                    <h3>Bütünsel Bakış</h3>
+                    <p>Zihinsel, duygusal ve sosyal yönleri bir bütün olarak ele alırım.</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">🕐</div>
-                    <div>
-                        <strong style="display: block; margin-bottom: 0.3rem;">Çalışma Saatleri</strong>
-                        <span>Pazartesi - Cuma: 09:00 - 18:00</span>
+            </div>
+        </section>
+    </div>
+
+    <div id="services" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hizmetlerimiz</h1>
+                <p>Size özel yaklaşımlarla, yaşam kalitenizi artırmak için geniş yelpazede hizmetler sunuyorum.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Bireysel Terapi</h3>
+                    <p>Kişisel gelişim, anksiyete, depresyon ve stres yönetimi konularında profesyonel destek. Bilişsel Davranışçı Terapi ve EMDR teknikleriyle, sizin için en uygun yaklaşımı belirleyerek çalışıyoruz.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💑</div>
+                    <h3>Çift Terapisi</h3>
+                    <p>İlişkilerde iletişim sorunları, çatışma çözümü ve duygusal bağ güçlendirme. Çiftlerin birbirlerini daha iyi anlamalarını ve sağlıklı bir ilişki kurmalarını sağlıyorum.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Aile Danışmanlığı</h3>
+                    <p>Aile içi iletişim problemleri, ebeveyn-çocuk ilişkileri ve aile dinamikleri. Ailelerin bir bütün olarak daha sağlıklı iletişim kurmalarına yardımcı oluyorum.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Kariyer Koçluğu</h3>
+                    <p>Kariyer planlama, motivasyon artırma ve iş yaşamında denge kurma. Profesyonel hedeflerinize ulaşmanız için destek sağlıyorum.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧘</div>
+                    <h3>Stres Yönetimi</h3>
+                    <p>Mindfulness, rahatlama teknikleri ve sağlıklı başa çıkma mekanizmaları. Günlük stresi yönetmek ve iç huzura kavuşmak için pratik yöntemler öğretiyorum.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Online Terapi</h3>
+                    <p>Güvenli ve rahat ortamda, nerede olursanız olun terapi imkanı. Video görüşme ile yüz yüze terapiye alternatif, etkili bir seçenek sunuyorum.</p>
+                </div>
+            </div>
+
+            <div style="background: var(--beige); padding: 60px 40px; border-radius: 20px; margin-top: 60px; text-align: center;">
+                <h2 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 2.2rem;">Terapi Süreci Nasıl İşler?</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.9; margin-bottom: 1.5rem;">İlk seansta tanışır, ihtiyaçlarınızı belirleriz. Sonrasında birlikte bir terapi planı oluştururuz. Her seans, sizin hızınıza uygun olarak ilerler. Terapinin süresi ve sıklığı, kişisel ihtiyaçlarınıza göre belirlenir.</p>
+                    <p style="font-size: 1.1rem; color: #555; line-height: 1.9;">Gizlilik ve güven, terapi sürecimin temel taşlarıdır. Paylaştığınız her şey tamamen gizli kalır.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="blog" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Blog & Medya</h1>
+                <p>Psikoloji, kişisel gelişim ve ruh sağlığı hakkında yazılar, videolar ve görsellerle bilgi paylaşımı.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="blog-tabs">
+                <button class="tab-btn active" onclick="showBlogTab('articles')">Yazılar</button>
+                <button class="tab-btn" onclick="showBlogTab('videos')">Videolar</button>
+                <button class="tab-btn" onclick="showBlogTab('gallery')">Galeri</button>
+            </div>
+
+            <div id="articles" class="blog-content active">
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">📝</div>
+                        <div class="blog-body">
+                            <div class="blog-date">15 Ocak 2026</div>
+                            <h3>Anksiyete ile Başa Çıkma Yolları</h3>
+                            <p class="blog-excerpt">Günlük hayatta anksiyeteyle başa çıkmak için kullanabileceğiniz pratik teknikler ve egzersizler hakkında bilgiler...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image">🧘</div>
+                        <div class="blog-body">
+                            <div class="blog-date">10 Ocak 2026</div>
+                            <h3>Mindfulness Nedir?</h3>
+                            <p class="blog-excerpt">Farkındalık temelli yaşam pratiği olan mindfulness'ın faydaları ve günlük rutininize nasıl ekleyebileceğiniz...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image">💭</div>
+                        <div class="blog-body">
+                            <div class="blog-date">5 Ocak 2026</div>
+                            <h3>Sağlıklı İlişkilerin Temelleri</h3>
+                            <p class="blog-excerpt">Sağlıklı ve kalıcı ilişkiler kurmanın temel prensipleri, iletişim becerileri ve çatışma çözümü...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image">🌱</div>
+                        <div class="blog-body">
+                            <div class="blog-date">28 Aralık 2025</div>
+                            <h3>Kişisel Gelişim Yolculuğu</h3>
+                            <p class="blog-excerpt">Kendinizi tanımak, potansiyelinizi keşfetmek ve sürekli gelişim için atacağınız adımlar...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image">😴</div>
+                        <div class="blog-body">
+                            <div class="blog-date">20 Aralık 2025</div>
+                            <h3>Uyku Hijyeni ve Ruh Sağlığı</h3>
+                            <p class="blog-excerpt">Kaliteli uykunun ruh sağlığı üzerindeki etkileri ve daha iyi uyku için öneriler...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
+                    </div>
+
+                    <div class="blog-card">
+                        <div class="blog-image">👨‍👩‍👧‍👦</div>
+                        <div class="blog-body">
+                            <div class="blog-date">15 Aralık 2025</div>
+                            <h3>Ebeveynlik ve Çocuk Psikolojisi</h3>
+                            <p class="blog-excerpt">Çocuklarınızla sağlıklı iletişim kurmanın yolları ve pozitif ebeveynlik teknikleri...</p>
+                            <a href="#" class="read-more">Devamını Oku →</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Adınız Soyadınız</label>
-                        <input type="text" id="name" placeholder="Adınızı girin" required>
+
+            <div id="videos" class="blog-content">
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-date">12 Ocak 2026</div>
+                            <h3>5 Dakikada Stres Yönetimi</h3>
+                            <p class="blog-excerpt">Stresli anlarda hemen uygulayabileceğiniz nefes egzersizleri ve rahatlama teknikleri.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">E-posta Adresiniz</label>
-                        <input type="email" id="email" placeholder="ornek@email.com" required>
+
+                    <div class="blog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-date">8 Ocak 2026</div>
+                            <h3>Mindfulness Meditasyonu Rehberi</h3>
+                            <p class="blog-excerpt">Başlangıç seviyesi için adım adım mindfulness meditasyonu uygulaması.</p>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Mesajınız</label>
-                        <textarea id="message" placeholder="Mesajınızı buraya yazın..." required></textarea>
+
+                    <div class="blog-card">
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-date">3 Ocak 2026</div>
+                            <h3>Pozitif İletişim Teknikleri</h3>
+                            <p class="blog-excerpt">İlişkilerinizde kullanabileceğiniz etkili iletişim stratejileri ve örnekler.</p>
+                        </div>
                     </div>
-                    <button type="submit" class="submit-btn">Mesaj Gönder</button>
-                </form>
+                </div>
+            </div>
+
+            <div id="gallery" class="blog-content">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <span>🧘‍♀️</span>
+                        <div class="gallery-caption">
+                            <strong>Meditasyon Seansı</strong>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span>📚</span>
+                        <div class="gallery-caption">
+                            <strong>Klinik Ortamı</strong>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span>🌿</span>
+                        <div class="gallery-caption">
+                            <strong>Doğa Terapisi</strong>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span>💬</span>
+                        <div class="gallery-caption">
+                            <strong>Grup Terapisi</strong>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span>✍️</span>
+                        <div class="gallery-caption">
+                            <strong>Terapi Notları</strong>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <span>🎨</span>
+                        <div class="gallery-caption">
+                            <strong>Sanat Terapisi</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="contact" class="page">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>İletişim</h1>
+                <p>Randevu almak veya sorularınız için benimle iletişime geçebilirsiniz. Size en kısa sürede dönüş yapacağım.</p>
+            </div>
+        </section>
+
+        <div class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Bizimle İletişime Geçin</h2>
+                    <p>Psikolojik sağlığınız için ilk adımı atmaya hazır mısınız? Randevu almak veya sorularınız için bana ulaşabilirsiniz.</p>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.3rem;">Telefon</strong>
+                            <span>+90 555 123 45 67</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.3rem;">E-posta</strong>
+                            <span>info@nazliertas.com</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.3rem;">Adres</strong>
+                            <span>Nispetiye Cad. No:12 Levent, İstanbul</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🕐</span>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.3rem;">Çalışma Saatleri</strong>
+                            <span>Pazartesi - Cuma: 09:00 - 18:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Adınız Soyadınız</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-posta</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mesajınız</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Mesaj Gönder</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2026 Nazlı Gül Ertaş Uyumaz - Klinik Psikolog. Tüm hakları saklıdır.</p>
     </footer>
 
     <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            closeMenu();
+        }
+
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
         }
 
         function closeMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.remove('active');
+            document.querySelector('.nav-links').classList.remove('active');
         }
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target
+        function handleSubmit(e) {
+            e.preventDefault();
+            alert('Mesajınız alındı! En kısa sürede size dönüş yapacağız.');
+            e.target.reset();
+        }
+
+        function showBlogTab(tabId) {
+            document.querySelectorAll('.blog-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
